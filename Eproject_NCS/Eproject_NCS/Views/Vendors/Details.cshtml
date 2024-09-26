@@ -1,0 +1,30 @@
+﻿@model Eproject_NCS.Models.Vendor
+
+@{
+    ViewData["Title"] = "Vendor Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Vendor Details</h1>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <h4><em>@Html.DisplayFor(model => model.VendorName)</em></h4>
+        <p>
+            <strong>Contact Person:</strong> @Html.DisplayFor(model => model.ContactPerson)
+        </p>
+        <p>
+            <strong>Contact Number:</strong> @Html.DisplayFor(model => model.ContactNumber)
+        </p>
+        <p>
+            <strong>Email:</strong> @Html.DisplayFor(model => model.Email)
+        </p>
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.VendorId" class="btn btn-secondary">Edit</a>
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+</div>

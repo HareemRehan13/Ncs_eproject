@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Eproject_NCS.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Customer List</h1>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow" style="overflow-x:auto;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().AccountId)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Name)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Address)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().PhoneNumber)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Email)</span>
+                    </th>
+                   
+                   
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Status)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">ACTIONS</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="line">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AccountId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                   
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.CustomerId" class="btn btn-secondary btn-sm edit" title="Edit">
+                                <i class='fas fa-edit'></i>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.CustomerId" class="btn btn-info btn-sm" title="Details">
+                                <i class='fas fa-info-circle'></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.CustomerId" class="btn btn-danger btn-sm" title="Delete">
+                                <i class='fas fa-trash'></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

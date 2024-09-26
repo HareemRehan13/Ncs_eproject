@@ -1,0 +1,30 @@
+﻿@model Eproject_NCS.Models.DiscountScheme
+
+@{
+    ViewData["Title"] = "Discount Scheme Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Discount Scheme Details</h1>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <h4><em>Scheme ID: @Html.DisplayFor(model => model.SchemeId)</em></h4>
+        <p>
+            <strong>Min Connections:</strong> @Html.DisplayFor(model => model.MinConnections)
+        </p>
+        <p>
+            <strong>Max Connections:</strong> @Html.DisplayFor(model => model.MaxConnections)
+        </p>
+        <p>
+            <strong>Discount Percentage:</strong> @Html.DisplayFor(model => model.DiscountPercentage)
+        </p>
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.SchemeId" class="btn btn-secondary">Edit</a>
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Eproject_NCS.Models.ServicePlan>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Plans -->
+<section class="plans d-flex align-items-center py-5" id="plans">
+    <div class="container text-light">
+        <div class="text-center pb-4">
+            <p>OUR PLANS</p>
+            <h2 class="py-2">Explore Our Plans</h2>
+            <p class="para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae asperiores, quia accusantium sunt corporis optio recusandae? Nostrum libero pariatur cumque, ipsa dolores voluptatibus voluptate alias sit fuga. Itaque, ea quo.</p>
+        </div>
+        <div class="row gy-4" data-aos="zoom-in">
+             @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <div class="card bg-transparent px-4">
+                        <h4 class="py-2"> @Html.DisplayFor(modelItem => item.PlanType)</h4>
+                <br />    <div class="block d-flex align-items-center">
+
+
+                            <p><b>@Html.DisplayNameFor(model => model.Description):</b><br />@Html.DisplayFor(modelItem => item.Description)</p>
+                    </div>
+
+                        <h4 class="py-3">Rs. @Html.DisplayFor(modelItem => item.Price)</h4>
+                    
+                </div>
+					
+				</div>
+         }
+            
+          
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</section> <!-- end of plans -->

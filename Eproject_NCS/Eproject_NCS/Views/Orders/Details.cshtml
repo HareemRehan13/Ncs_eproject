@@ -1,0 +1,33 @@
+﻿@model Eproject_NCS.Models.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Order Details</h1>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <h4><em>Order ID: @Html.DisplayFor(model => model.OrderId)</em></h4>
+        <p>
+            <strong>Order Date:</strong> @Html.DisplayFor(model => model.OrderDate)
+        </p>
+        <p>
+            <strong>Status:</strong> @Html.DisplayFor(model => model.Status)
+        </p>
+        <p>
+            <strong>Customer ID:</strong> @Html.DisplayFor(model => model.Customer.CustomerId)
+        </p>
+        <p>
+            <strong>Equipment ID:</strong> @Html.DisplayFor(model => model.Equipment.ProductId)
+        </p>
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.OrderId" class="btn btn-secondary">Edit</a>
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+</div>

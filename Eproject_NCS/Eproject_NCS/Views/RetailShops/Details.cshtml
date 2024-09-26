@@ -1,0 +1,27 @@
+﻿@model Eproject_NCS.Models.RetailShop
+
+@{
+    ViewData["Title"] = "Retail Shop Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Retail Shop Details</h1>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <h4><em>@Html.DisplayFor(model => model.ShopName)</em></h4>
+        <p>
+            <strong>Address:</strong> @Html.DisplayFor(model => model.Address)
+        </p>
+        <p>
+            <strong>Contact Number:</strong> @Html.DisplayFor(model => model.ContactNumber)
+        </p>
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.ShopId" class="btn btn-secondary">Edit</a>
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+</div>

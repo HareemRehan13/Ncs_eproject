@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Eproject_NCS.Models.Vendor>
+
+@{
+    ViewData["Title"] = "Vendor List";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Vendor List</h1>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().VendorName)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().ContactPerson)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().ContactNumber)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Email)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">ACTIONS</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VendorName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContactPerson)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContactNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.VendorId" class="btn btn-secondary btn-sm edit" title="Edit">
+                                <i class='fas fa-edit'></i>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.VendorId" class="btn btn-info btn-sm" title="Details">
+                                <i class='fas fa-info-circle'></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.VendorId" class="btn btn-danger btn-sm" title="Delete">
+                                <i class='fas fa-trash'></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

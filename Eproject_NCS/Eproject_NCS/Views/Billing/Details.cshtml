@@ -1,0 +1,33 @@
+﻿@model Eproject_NCS.Models.Billing
+
+@{
+    ViewData["Title"] = "Billing Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Billing Details</h1>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <h4><em>Billing ID: @Html.DisplayFor(model => model.BillingId)</em></h4>
+        <p>
+            <strong>Bill Date:</strong> @Html.DisplayFor(model => model.BillDate)
+        </p>
+        <p>
+            <strong>Total Amount:</strong> @Html.DisplayFor(model => model.TotalAmount)
+        </p>
+        <p>
+            <strong>Connection ID:</strong> @Html.DisplayFor(model => model.Connection.ConnectionId)
+        </p>
+        <p>
+            <strong>Customer ID:</strong> @Html.DisplayFor(model => model.Customer.CustomerId)
+        </p>
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.BillingId" class="btn btn-secondary">Edit</a>
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+</div>

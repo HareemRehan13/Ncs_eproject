@@ -1,0 +1,47 @@
+﻿@model Eproject_NCS.Models.RetailShop
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Add Retail Shop</h1>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <!-- Rounded corners -->
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="ShopName" class="control-label form-label"></label>
+                <input asp-for="ShopName" class="form-control rounded-input" />
+                <span asp-validation-for="ShopName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Address" class="control-label form-label"></label>
+                <input asp-for="Address" class="form-control rounded-input" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ContactNumber" class="control-label form-label"></label>
+                <input asp-for="ContactNumber" class="form-control rounded-input" />
+                <span asp-validation-for="ContactNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary rounded-button" />
+            </div>
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

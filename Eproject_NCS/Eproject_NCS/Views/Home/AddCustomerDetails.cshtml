@@ -1,0 +1,64 @@
+﻿@model Eproject_NCS.Models.Customer
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section class="plans d-flex align-items-center py-5">
+    <div class="container text-light">
+        <div class="text-center pb-4">
+            <p>Customer Details</p>
+            <h2 class="py-2">Customer Details</h2>
+            <p class="para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae asperiores, quia accusantium sunt corporis optio recusandae? Nostrum libero pariatur cumque, ipsa dolores voluptatibus voluptate alias sit fuga. Itaque, ea quo.</p>
+        </div>
+        <div class="row gy-4" data-aos="zoom-in">
+            <div class="container">
+                <form asp-action="AddCustomerDetails" asp-controller="Home" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            
+                            <div class="form-group">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" class="form-control" style="width: 90%;"/>
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="PhoneNumber" class="control-label"></label>
+                                <input asp-for="PhoneNumber" class="form-control" style="width: 90%;" />
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                      <div class="form-group">
+                                <label asp-for="Status" class="control-label" ></label>
+                                <input asp-for="Status" class="form-control" style="width: 90%;" />
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Address" class="control-label"></label>
+                                <input asp-for="Address" class="form-control" style="width: 90%;" />
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" class="form-control" style="width: 90%;" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                           
+                            <br />
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                    <br />
+                    <div>
+                        <a asp-action="Index">Back to List</a>
+                    </div>
+                        </div>
+                    </div>
+                   
+                </form>
+            </div>
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</section> <!-- end of plans -->

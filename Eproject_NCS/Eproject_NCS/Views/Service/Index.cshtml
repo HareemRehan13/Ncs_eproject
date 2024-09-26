@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Eproject_NCS.Models.ServicePlan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Service Plan List</h1>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow" style="overflow-x:auto;" style="background-color: #f8f9fa;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().PlanType)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Description)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Price)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().SecurityDeposit)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">ACTIONS</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="line">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PlanType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SecurityDeposit)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.PlanId" class="btn btn-secondary btn-sm edit" title="Edit">
+                                <i class='fas fa-edit'></i>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.PlanId" class="btn btn-info btn-sm" title="Details">
+                                <i class='fas fa-info-circle'></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.PlanId" class="btn btn-danger btn-sm" title="Delete">
+                                <i class='fas fa-trash'></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

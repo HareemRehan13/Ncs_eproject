@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Eproject_NCS.Models.DiscountScheme>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Plans -->
+<section class="plans d-flex align-items-center py-5" id="plans">
+    <div class="container text-light">
+        <div class="text-center pb-4">
+            <p>OUR PLANS</p>
+            <h2 class="py-2">Explore Our Plans</h2>
+            <p class="para-light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae asperiores, quia accusantium sunt corporis optio recusandae? Nostrum libero pariatur cumque, ipsa dolores voluptatibus voluptate alias sit fuga. Itaque, ea quo.</p>
+        </div>
+        <div class="row gy-4" data-aos="zoom-in">
+            <table class="table text-light">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MinConnections)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MaxConnections)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DiscountPercentage)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MinConnections)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MaxConnections)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DiscountPercentage)
+                            </td>
+                          
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div> <!-- end of row -->
+    </div> <!-- end of container -->
+</section> <!-- end of plans -->

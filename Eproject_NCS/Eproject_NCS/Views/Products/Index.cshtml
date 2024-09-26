@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Eproject_NCS.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Product List</h1>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().ProductName)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().ProductType)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Stock)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Price)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Image)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">ACTIONS</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="line">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ProductType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stock)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            <img src="@Html.DisplayFor(modelItem => item.Image)" class="rounded-circle" height="65" alt="Product Image">
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ProductId" class="btn btn-secondary btn-sm edit" title="Edit">
+                                <i class='fas fa-edit'></i>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.ProductId" class="btn btn-info btn-sm" title="Details">
+                                <i class='fas fa-info-circle'></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.ProductId" class="btn btn-danger btn-sm" title="Delete">
+                                <i class='fas fa-trash'></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

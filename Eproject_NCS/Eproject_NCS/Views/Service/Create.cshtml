@@ -1,0 +1,46 @@
+﻿@model Eproject_NCS.Models.ServicePlan
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Add Service Plan</h1>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <!-- Rounded corners -->
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PlanType" class="control-label form-label"></label>
+                <input asp-for="PlanType" class="form-control rounded-input" />
+                <span asp-validation-for="PlanType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label form-label"></label>
+                <input asp-for="Description" class="form-control rounded-input" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label form-label"></label>
+                <input asp-for="Price" class="form-control rounded-input" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecurityDeposit" class="control-label form-label"></label>
+                <input asp-for="SecurityDeposit" class="form-control rounded-input" />
+                <span asp-validation-for="SecurityDeposit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary rounded-button" />
+            </div>
+            <div>
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>

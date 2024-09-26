@@ -1,0 +1,30 @@
+﻿@model Eproject_NCS.Models.ServicePlan
+
+@{
+    ViewData["Title"] = "Service Plan Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Service Plan Details</h1>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <h4><em>@Html.DisplayFor(model => model.PlanType)</em></h4>
+        <p>
+            <strong>Description:</strong> @Html.DisplayFor(model => model.Description)
+        </p>
+        <p>
+            <strong>Price:</strong> @Html.DisplayFor(model => model.Price)
+        </p>
+        <p>
+            <strong>Security Deposit:</strong> @Html.DisplayFor(model => model.SecurityDeposit)
+        </p>
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.PlanId" class="btn btn-secondary">Edit</a>
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+</div>

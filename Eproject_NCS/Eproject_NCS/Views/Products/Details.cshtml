@@ -1,0 +1,34 @@
+﻿@model Eproject_NCS.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Product Details</h1>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <h4><em>@Html.DisplayFor(model => model.ProductName)</em></h4>
+        <p>
+            <strong>Product Type:</strong> @Html.DisplayFor(model => model.ProductType)
+        </p>
+        <p>
+            <strong>Stock:</strong> @Html.DisplayFor(model => model.Stock)
+        </p>
+        <p>
+            <strong>Price:</strong> @Html.DisplayFor(model => model.Price)
+        </p>
+        <p>
+            <strong>Image:</strong><br />
+            <img src="@Html.DisplayFor(model => model.Image)" class="rounded" height="150" alt="Product Image">
+        </p>
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-secondary">Edit</a>
+            <a asp-action="Index" class="btn btn-primary">Back to List</a>
+        </div>
+    </div>
+</div>

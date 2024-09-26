@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Eproject_NCS.Models.Billing>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 headings">Billing List</h1>
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Create New</a>
+        </p>
+    </div>
+
+    <div class="bg-light p-4 custom-shadow">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().BillDate)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().TotalAmount)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Connection)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">@Html.DisplayNameFor(model => model.First().Customer)</span>
+                    </th>
+                    <th>
+                        <span class="text-muted">ACTIONS</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BillDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalAmount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Connection.ConnectionId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.BillingId" class="btn btn-secondary btn-sm edit" title="Edit">
+                                <i class='fas fa-edit'></i>
+                            </a>
+                            <a asp-action="Details" asp-route-id="@item.BillingId" class="btn btn-info btn-sm" title="Details">
+                                <i class='fas fa-info-circle'></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.BillingId" class="btn btn-danger btn-sm" title="Delete">
+                                <i class='fas fa-trash'></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
