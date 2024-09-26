@@ -42,13 +42,14 @@ public partial class NexusContext : DbContext
     public virtual DbSet<Vendor> Vendors { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("data source=.;initial catalog=Nexus;user id=sa;password=aptech; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Billing>(entity =>
         {
-            entity.HasKey(e => e.BillingId).HasName("PK__Billing__F1656D13E5E904EF");
+            entity.HasKey(e => e.BillingId).HasName("PK__Billing__F1656D13D5E247FC");
 
             entity.ToTable("Billing");
 
@@ -64,16 +65,16 @@ public partial class NexusContext : DbContext
 
             entity.HasOne(d => d.Connection).WithMany(p => p.Billings)
                 .HasForeignKey(d => d.ConnectionId)
-                .HasConstraintName("FK__Billing__Connect__440B1D61");
+                .HasConstraintName("FK__Billing__Connect__44FF419A");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Billings)
                 .HasForeignKey(d => d.CustomerId)
-                .HasConstraintName("FK__Billing__Custome__45F365D3");
+                .HasConstraintName("FK__Billing__Custome__46E78A0C");
         });
 
         modelBuilder.Entity<Connection>(entity =>
         {
-            entity.HasKey(e => e.ConnectionId).HasName("PK__Connecti__404A64F3B03DF55D");
+            entity.HasKey(e => e.ConnectionId).HasName("PK__Connecti__404A64F3841A29FC");
 
             entity.Property(e => e.ConnectionId).HasColumnName("ConnectionID");
             entity.Property(e => e.ConnectionNo).HasMaxLength(16);
@@ -92,17 +93,17 @@ public partial class NexusContext : DbContext
             entity.HasOne(d => d.Customer).WithMany(p => p.Connections)
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Connectio__Custo__48CFD27E");
+                .HasConstraintName("FK__Connectio__Custo__49C3F6B7");
 
             entity.HasOne(d => d.Plan).WithMany(p => p.Connections)
                 .HasForeignKey(d => d.PlanId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Connectio__PlanI__49C3F6B7");
+                .HasConstraintName("FK__Connectio__PlanI__4AB81AF0");
         });
 
         modelBuilder.Entity<ConnectionOrder>(entity =>
         {
-            entity.HasKey(e => e.ConordId).HasName("PK__Connecti__FCE98506CF2161DC");
+            entity.HasKey(e => e.ConordId).HasName("PK__Connecti__FCE985066B4C0A13");
 
             entity.Property(e => e.ConordId)
                 .HasMaxLength(11)
@@ -126,9 +127,9 @@ public partial class NexusContext : DbContext
 
         modelBuilder.Entity<Customer>(entity =>
         {
-            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B8E8E2DFA0");
+            entity.HasKey(e => e.CustomerId).HasName("PK__Customer__A4AE64B8CF0D62A5");
 
-            entity.HasIndex(e => e.AccountId, "UQ__Customer__349DA5879BA29343").IsUnique();
+            entity.HasIndex(e => e.AccountId, "UQ__Customer__349DA587B2863337").IsUnique();
 
             entity.HasIndex(e => e.Name, "idx_Customers_Name");
 
@@ -152,16 +153,15 @@ public partial class NexusContext : DbContext
 
         modelBuilder.Entity<DiscountScheme>(entity =>
         {
-            entity.HasKey(e => e.SchemeId).HasName("PK__Discount__DB7E1A426754E104");
+            entity.HasKey(e => e.SchemeId).HasName("PK__Discount__DB7E1A420F82119C");
 
             entity.Property(e => e.SchemeId).HasColumnName("SchemeID");
             entity.Property(e => e.DiscountPercentage).HasColumnType("decimal(5, 2)");
         });
 
-
         modelBuilder.Entity<Feedback>(entity =>
         {
-            entity.HasKey(e => e.FeedbackId).HasName("PK__Feedback__6A4BEDF6582408D0");
+            entity.HasKey(e => e.FeedbackId).HasName("PK__Feedback__6A4BEDF645231A42");
 
             entity.ToTable("Feedback");
 
@@ -183,7 +183,7 @@ public partial class NexusContext : DbContext
 
         modelBuilder.Entity<Order>(entity =>
         {
-            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFE60A586B");
+            entity.HasKey(e => e.OrderId).HasName("PK__Orders__C3905BAFA8BFABF8");
 
             entity.HasIndex(e => e.CustomerId, "idx_Orders_CustomerID");
 
@@ -202,7 +202,7 @@ public partial class NexusContext : DbContext
             entity.HasOne(d => d.Customer).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orders__Customer__4D94879B");
+                .HasConstraintName("FK__Orders__Customer__6E01572D");
 
             entity.HasOne(d => d.Equipment).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.EquipmentId)
@@ -212,7 +212,7 @@ public partial class NexusContext : DbContext
 
         modelBuilder.Entity<Payment>(entity =>
         {
-            entity.HasKey(e => e.PaymentId).HasName("PK__Payments__9B556A581993BB7E");
+            entity.HasKey(e => e.PaymentId).HasName("PK__Payments__9B556A585AAA67F6");
 
             entity.HasIndex(e => e.CustomerId, "idx_Payments_CustomerID");
 
@@ -233,7 +233,7 @@ public partial class NexusContext : DbContext
 
         modelBuilder.Entity<Product>(entity =>
         {
-            entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6ED92EB0FFE");
+            entity.HasKey(e => e.ProductId).HasName("PK__Products__B40CC6EDF8B2A4EB");
 
             entity.Property(e => e.ProductId).HasColumnName("ProductID");
             entity.Property(e => e.Image).HasColumnName("image");
@@ -244,7 +244,7 @@ public partial class NexusContext : DbContext
 
         modelBuilder.Entity<RetailShop>(entity =>
         {
-            entity.HasKey(e => e.ShopId).HasName("PK__RetailSh__67C55629873A27B9");
+            entity.HasKey(e => e.ShopId).HasName("PK__RetailSh__67C55629059BCFAA");
 
             entity.Property(e => e.ShopId).HasColumnName("ShopID");
             entity.Property(e => e.Address).HasMaxLength(255);
@@ -256,7 +256,7 @@ public partial class NexusContext : DbContext
 
         modelBuilder.Entity<ServicePlan>(entity =>
         {
-            entity.HasKey(e => e.PlanId).HasName("PK__ServiceP__755C22D7B7ACA704");
+            entity.HasKey(e => e.PlanId).HasName("PK__ServiceP__755C22D7AD65B1F1");
 
             entity.Property(e => e.PlanId).HasColumnName("PlanID");
             entity.Property(e => e.PlanType).HasMaxLength(50);
@@ -266,7 +266,7 @@ public partial class NexusContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC078E472B0F");
+            entity.HasKey(e => e.Id).HasName("PK__Users__3214EC07C8286140");
 
             entity.Property(e => e.Email).HasColumnName("email");
             entity.Property(e => e.Password).HasColumnName("password");
@@ -279,7 +279,7 @@ public partial class NexusContext : DbContext
 
         modelBuilder.Entity<Vendor>(entity =>
         {
-            entity.HasKey(e => e.VendorId).HasName("PK__Vendors__FC8618D3A6FAAD53");
+            entity.HasKey(e => e.VendorId).HasName("PK__Vendors__FC8618D3C7B9B1FB");
 
             entity.Property(e => e.VendorId).HasColumnName("VendorID");
             entity.Property(e => e.ContactNumber)

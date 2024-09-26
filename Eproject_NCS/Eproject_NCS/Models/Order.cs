@@ -15,10 +15,9 @@ public partial class Order
 
     public int EquipmentId { get; set; }
 
-    public virtual Customer Customer { get; set; } = null!;
+    public virtual User Customer { get; set; } = null!;
 
     public virtual Product Equipment { get; set; } = null!;
-
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 }

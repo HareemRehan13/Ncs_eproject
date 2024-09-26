@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asp\\Downloads\\Ncs\\Ncs\\Eproject_NCS\\Eproject_NCS\\Eproject_NCS.csproj": {}
+    "C:\\Users\\asp\\Documents\\Ncs_eproject\\Eproject_NCS\\Eproject_NCS\\Eproject_NCS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asp\\Downloads\\Ncs\\Ncs\\Eproject_NCS\\Eproject_NCS\\Eproject_NCS.csproj": {
+    "C:\\Users\\asp\\Documents\\Ncs_eproject\\Eproject_NCS\\Eproject_NCS\\Eproject_NCS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asp\\Downloads\\Ncs\\Ncs\\Eproject_NCS\\Eproject_NCS\\Eproject_NCS.csproj",
+        "projectUniqueName": "C:\\Users\\asp\\Documents\\Ncs_eproject\\Eproject_NCS\\Eproject_NCS\\Eproject_NCS.csproj",
         "projectName": "Eproject_NCS",
-        "projectPath": "C:\\Users\\asp\\Downloads\\Ncs\\Ncs\\Eproject_NCS\\Eproject_NCS\\Eproject_NCS.csproj",
+        "projectPath": "C:\\Users\\asp\\Documents\\Ncs_eproject\\Eproject_NCS\\Eproject_NCS\\Eproject_NCS.csproj",
         "packagesPath": "C:\\Users\\asp\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asp\\Downloads\\Ncs\\Ncs\\Eproject_NCS\\Eproject_NCS\\obj\\",
+        "outputPath": "C:\\Users\\asp\\Documents\\Ncs_eproject\\Eproject_NCS\\Eproject_NCS\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

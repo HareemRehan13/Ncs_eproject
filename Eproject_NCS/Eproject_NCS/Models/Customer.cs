@@ -27,7 +27,5 @@ public partial class Customer
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 
-    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
-
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 }
